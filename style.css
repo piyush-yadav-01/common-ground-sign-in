@@ -1,0 +1,393 @@
+:root {
+	color-scheme: light;
+	--ink: #20352f;
+	--muted: #74817b;
+	--paper: #f4f2ec;
+	--white: #fffefa;
+	--green: #214f43;
+	--green-dark: #183c33;
+	--coral: #e58b70;
+	--line: #dedfd8;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	min-width: 320px;
+	min-height: 100vh;
+	margin: 0;
+	padding: 32px;
+	display: grid;
+	place-items: center;
+	background-color: var(--paper);
+	background-image: radial-gradient(#d8d8ce 0.7px, transparent 0.7px);
+	background-size: 15px 15px;
+	color: var(--ink);
+	font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+button,
+input {
+	font: inherit;
+}
+
+button,
+a {
+	-webkit-tap-highlight-color: transparent;
+}
+
+a {
+	color: var(--green);
+	text-underline-offset: 3px;
+}
+
+.page-shell {
+	width: min(100%, 1040px);
+	min-height: 650px;
+	display: grid;
+	grid-template-columns: 0.95fr 1.05fr;
+	overflow: hidden;
+	background: var(--white);
+	box-shadow: 0 24px 70px #26392c1a;
+}
+
+.welcome-panel {
+	position: relative;
+	min-height: 650px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	overflow: hidden;
+	padding: 42px 44px 36px;
+	background-color: var(--green);
+	background-image: linear-gradient(145deg, #ffffff08 25%, transparent 25%, transparent 75%, #ffffff08 75%);
+	background-size: 44px 44px;
+	color: var(--white);
+}
+
+.wordmark,
+.mobile-wordmark {
+	position: relative;
+	z-index: 1;
+	color: inherit;
+	font-size: 18px;
+	font-weight: 700;
+	letter-spacing: 0;
+	text-decoration: none;
+}
+
+.wordmark span,
+.mobile-wordmark span {
+	color: #b7d4a3;
+	font-weight: 400;
+}
+
+.welcome-copy {
+	position: relative;
+	z-index: 1;
+	max-width: 370px;
+	padding-bottom: 16px;
+}
+
+.eyebrow {
+	margin: 0 0 16px;
+	color: #728078;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+}
+
+.welcome-panel .eyebrow {
+	color: #c8d8c4;
+}
+
+.welcome-copy h1 {
+	max-width: 350px;
+	margin: 0;
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: clamp(38px, 4vw, 52px);
+	font-weight: 400;
+	line-height: 1.08;
+}
+
+.welcome-note {
+	max-width: 300px;
+	margin: 22px 0 0;
+	color: #e0ebe3;
+	font-size: 14px;
+	line-height: 1.7;
+}
+
+.panel-footer {
+	position: relative;
+	z-index: 1;
+	margin: 0;
+	color: #d3e2d6;
+	font-size: 12px;
+}
+
+.sun-shape {
+	position: absolute;
+	right: -80px;
+	bottom: 105px;
+	width: 260px;
+	aspect-ratio: 1;
+	border: 1px solid #d5e4d633;
+	border-radius: 50%;
+}
+
+.sun-shape::before,
+.sun-shape::after {
+	position: absolute;
+	content: "";
+	border: 1px solid #d5e4d633;
+	border-radius: 50%;
+}
+
+.sun-shape::before {
+	inset: 20px;
+}
+
+.sun-shape::after {
+	inset: 42px;
+	background: var(--coral);
+	border: 0;
+}
+
+.form-panel {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 64px clamp(36px, 7vw, 82px) 28px;
+}
+
+.form-wrap {
+	width: min(100%, 360px);
+	margin: auto;
+}
+
+.mobile-wordmark {
+	display: none;
+	margin: 0 0 48px;
+	color: var(--green);
+}
+
+.form-panel h2 {
+	margin: 0;
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 32px;
+	font-weight: 400;
+	line-height: 1.2;
+}
+
+.form-intro {
+	margin: 10px 0 32px;
+	color: var(--muted);
+	font-size: 14px;
+}
+
+#login-form > label,
+.password-heading label {
+	display: block;
+	margin-bottom: 9px;
+	color: var(--ink);
+	font-size: 12px;
+	font-weight: 700;
+}
+
+#email,
+#password {
+	width: 100%;
+	height: 48px;
+	padding: 0 14px;
+	border: 1px solid var(--line);
+	border-radius: 3px;
+	outline: none;
+	background: #fff;
+	color: var(--ink);
+	font-size: 14px;
+	transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+#email::placeholder,
+#password::placeholder {
+	color: #a4aaa4;
+}
+
+#email:focus,
+#password:focus {
+	border-color: var(--green);
+	box-shadow: 0 0 0 3px #214f4318;
+}
+
+.password-heading {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin-top: 21px;
+}
+
+.password-heading label {
+	margin-bottom: 9px;
+}
+
+.text-button,
+.show-password {
+	padding: 0;
+	border: 0;
+	background: none;
+	color: var(--green);
+	cursor: pointer;
+	font-size: 12px;
+}
+
+.text-button:hover,
+.show-password:hover {
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+.password-field {
+	position: relative;
+}
+
+.password-field input {
+	padding-right: 60px;
+}
+
+.show-password {
+	position: absolute;
+	top: 50%;
+	right: 14px;
+	transform: translateY(-50%);
+	font-weight: 700;
+}
+
+.remember-option {
+	width: fit-content;
+	display: flex;
+	align-items: center;
+	gap: 9px;
+	margin-top: 19px;
+	color: #53625b;
+	cursor: pointer;
+	font-size: 12px;
+}
+
+.remember-option input {
+	width: 15px;
+	height: 15px;
+	margin: 0;
+	accent-color: var(--green);
+}
+
+.submit-button {
+	width: 100%;
+	min-height: 49px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 25px;
+	padding: 0 17px;
+	border: 0;
+	border-radius: 3px;
+	background: var(--green);
+	color: white;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 700;
+	transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.submit-button:hover {
+	transform: translateY(-1px);
+	background: var(--green-dark);
+}
+
+.submit-button span {
+	font-size: 20px;
+	font-weight: 400;
+}
+
+.form-message {
+	min-height: 18px;
+	margin: 12px 0 0;
+	color: var(--green);
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+.signup-prompt {
+	margin: 21px 0 0;
+	color: var(--muted);
+	font-size: 12px;
+	text-align: center;
+}
+
+.signup-prompt a,
+.legal-note a {
+	font-weight: 700;
+}
+
+.legal-note {
+	margin: 42px 0 0;
+	color: #8a938c;
+	font-size: 10px;
+	line-height: 1.6;
+	text-align: center;
+}
+
+.legal-note a {
+	color: #64736a;
+}
+
+@media (max-width: 720px) {
+	body {
+		padding: 0;
+		background: var(--white);
+	}
+
+	.page-shell {
+		width: 100%;
+		min-height: 100vh;
+		grid-template-columns: 1fr;
+	}
+
+	.welcome-panel {
+		display: none;
+	}
+
+	.form-panel {
+		min-height: 100vh;
+		padding: 38px 26px 24px;
+	}
+
+	.form-wrap {
+		width: min(100%, 390px);
+	}
+
+	.mobile-wordmark {
+		display: block;
+	}
+
+	.form-panel h2 {
+		font-size: 30px;
+	}
+
+	.legal-note {
+		margin-top: 32px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+}
